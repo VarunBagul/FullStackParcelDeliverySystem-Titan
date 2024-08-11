@@ -50,6 +50,8 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+console.log("Server is running"); // Place this at the beginning of your main file
+
 // Import routes
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
@@ -66,13 +68,13 @@ app.use(cors());
 app.use(express.json()); // Express can accept JSON data from requests
 
 // Routes
-app.use("/auth", authRoute);
-console.log(authRoute);
-app.use("/users", userRoute);
-console.log(userRoute);
+app.use("/api/v1/auth", authRoute); //initially it was just ("/auth",authRoute) then we added api/v1 for testing easily in Postman
+//console.log(authRoute);
+app.use("/api/v1/users", userRoute);
+//console.log(userRoute);
 
-app.use("/parcels", parcelRoute);
-console.log(parcelRoute);
+app.use("/api/v1/parcels", parcelRoute);
+//console.log(parcelRoute);
 // Database connection
 const DB = process.env.DB;
 mongoose
