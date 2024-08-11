@@ -10,12 +10,16 @@ const {
   getUserParcel,
   deleteParcel,
 } = require("../controllers/parcel");
+const {
+  verifyToken,
+  verifyTokenAndAuthorization,
+} = require("../middlewares/verifyToken");
 
 //ADD PARCEL
-router.post("/", createParcel);
+router.post("/", verifyToken, createParcel); //auth added
 
 //GETALL PARCELS
-router.get("/", getAllParcels);
+router.get("/", verifyTokenAndAuthorization, getAllParcels);
 
 //Update parcel
 router.put("/:id", updateParcel);
