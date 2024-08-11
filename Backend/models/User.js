@@ -4,7 +4,7 @@ const mongoose = require("mongoose"); //1
 //2
 const UserSchema = mongoose.Schema(
   {
-    //object
+    //object 2b
 
     fullname: { type: String, require: true },
     email: { type: String, require: true },
@@ -20,6 +20,6 @@ const UserSchema = mongoose.Schema(
   }
 );
 
-//3
+//2a
 //export the files before schema
 module.exports = mongoose.model("User", UserSchema);
